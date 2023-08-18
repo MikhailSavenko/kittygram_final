@@ -13,7 +13,10 @@ DEBUG = os.getenv('DEBAG') == 'True'
 
 AH = os.getenv('ALLOWED_HOSTS') 
 
-ALLOWED_HOSTS = [host.strip() for host in AH.split(',')] 
+if AH is not None:
+    ALLOWED_HOSTS = [host.strip() for host in AH.split(',')]
+else:
+    ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'django.contrib.admin',
