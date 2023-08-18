@@ -8,11 +8,9 @@ load_dotenv()
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv('SECRET_KEY') 
-
 DEBUG = os.getenv('DEBAG') == 'True'
 
 AH = os.getenv('ALLOWED_HOSTS') 
-
 if AH is not None:
     ALLOWED_HOSTS = [host.strip() for host in AH.split(',')]
 else:
