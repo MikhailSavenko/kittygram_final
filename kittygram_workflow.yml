@@ -1,10 +1,7 @@
 name: Main Kittygram workflow
 
 on:
-  push:
-    branches:
-      - main
-      - '**'
+  push
 
 jobs:
   tests:
@@ -168,6 +165,7 @@ jobs:
     needs: deploy
     steps:
     - name: Send message
+      if: github.ref == 'refs/heads/main'
       uses: appleboy/telegram-action@master
       with:
         to: ${{ secrets.TELEGRAM_TO }}

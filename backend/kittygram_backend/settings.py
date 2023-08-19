@@ -8,11 +8,10 @@ load_dotenv()
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv('SECRET_KEY', 'django-settings-secret-key')
-DEBUG = os.getenv('DEBAG') == 'True'
-
-AH = os.getenv('ALLOWED_HOSTS') 
-if AH is not None:
-    ALLOWED_HOSTS = [host.strip() for host in AH.split(',')]
+DEBUG = os.getenv('DEBUG') == 'True'
+  
+if os.getenv('ALLOWED_HOSTS') is not None:
+    ALLOWED_HOSTS = [host.strip() for host in os.getenv('ALLOWED_HOSTS').split(',')]
 else:
     ALLOWED_HOSTS = []
 
