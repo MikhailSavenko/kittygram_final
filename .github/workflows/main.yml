@@ -133,6 +133,7 @@ jobs:
     - name: Checkout repo
       uses: actions/checkout@v3
     - name: Copy docker-compose.yml via ssh
+      if: github.ref == 'refs/heads/main'
       uses: appleboy/scp-action@master
       with:
         host: ${{ secrets.HOST }}
